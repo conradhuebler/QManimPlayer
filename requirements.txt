@@ -1,0 +1,11 @@
+# QManimPlayer Requirements
+
+# Core dependencies
+PyQt6>=6.0.0
+
+# Optional: manim-gl support
+# This is not listed as a requirement since users should install it separately
+setuptools
+pyaudio
+audioop-lts
+manimgl>=0.15.0
