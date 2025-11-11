@@ -103,6 +103,13 @@ class ParameterParser:
                 return bool
             elif node.id == "str":
                 return str
+        elif isinstance(node, ast.UnaryOp):
+            # Handle unary operations (negative numbers: -x, positive: +x)
+            operand = self._extract_value(node.operand)
+            if isinstance(node.op, ast.USub):
+                return -operand
+            elif isinstance(node.op, ast.UAdd):
+                return +operand
         return None
 
     def get_categories(self) -> Dict[str, List[str]]:

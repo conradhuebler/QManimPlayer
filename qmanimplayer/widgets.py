@@ -55,9 +55,9 @@ class FloatParameterWidget(ParameterWidget):
     def __init__(self, param_name: str, param_data: dict, parent=None):
         super().__init__(param_name, param_data, parent)
 
-        current_value = param_data.get("value", 0.0)
-        min_val = param_data.get("min", 0.0)
-        max_val = param_data.get("max", 100.0)
+        current_value = param_data.get("value") or 0.0
+        min_val = param_data.get("min") or 0.0
+        max_val = param_data.get("max") or 100.0
         step = (max_val - min_val) / 100.0 if max_val != min_val else 0.1
 
         layout = QHBoxLayout()
@@ -157,9 +157,9 @@ class IntParameterWidget(ParameterWidget):
     def __init__(self, param_name: str, param_data: dict, parent=None):
         super().__init__(param_name, param_data, parent)
 
-        current_value = param_data.get("value", 0)
-        min_val = param_data.get("min", 0)
-        max_val = param_data.get("max", 100)
+        current_value = param_data.get("value") or 0
+        min_val = param_data.get("min") or 0
+        max_val = param_data.get("max") or 100
 
         layout = QHBoxLayout()
         layout.setContentsMargins(0, 0, 0, 0)
